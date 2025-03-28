@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (viewportWidth <= 375) {
       inter.style.marginTop = "450px";
     } else if (viewportWidth <= 400) {
-      inter.style.marginTop = "640px";
+      inter.style.marginTop = "450px";
     } else if (viewportWidth <= 769) {
       inter.style.marginTop = "720px";
     } else if (viewportWidth <= 900) {
