@@ -51,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function() {
     } else if (viewportWidth <= 900) {
       inter.style.marginTop = "450px";
     } else if (viewportWidth <= 2000) {
-      inter.style.marginTop = "540px";
+      inter.style.marginTop = "450px";
     } else {
-      inter.style.marginTop = "540px";
+      inter.style.marginTop = "450px";
     }
   }
 
