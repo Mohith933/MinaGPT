@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", function() {
     if (viewportWidth <= 375) {
       inter.style.marginTop = "450px";
     } else if (viewportWidth <= 400) {
-      inter.style.marginTop = "450px";
+      inter.style.marginTop = "540px";
     } else if (viewportWidth <= 769) {
-      inter.style.marginTop = "450px";
+      inter.style.marginTop = "720px";
     } else if (viewportWidth <= 900) {
-      inter.style.marginTop = "450px";
+      inter.style.marginTop = "920px";
     } else if (viewportWidth <= 2000) {
       inter.style.marginTop = "450px";
     } else {
