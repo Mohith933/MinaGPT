@@ -44,16 +44,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (viewportWidth <= 375) {
       inter.style.marginTop = "450px";
+      chatWindow.style = "height:300px";
     } else if (viewportWidth <= 400) {
       inter.style.marginTop = "540px";
+      chatWindow.style = "height:400px";
     } else if (viewportWidth <= 769) {
       inter.style.marginTop = "720px";
+      chatWindow.style = "height:690px";
     } else if (viewportWidth <= 900) {
       inter.style.marginTop = "920px";
+      chatWindow.style = "height:890px";
     } else if (viewportWidth <= 2000) {
-      inter.style.marginTop = "450px";
+      inter.style.marginTop = "540px";
+      chatWindow.style = "height:500px";
     } else {
-      inter.style.marginTop = "450px";
+      inter.style.marginTop = "540px";
+      chatWindow.style = "height:500px";
     }
   }
 
