@@ -12,10 +12,12 @@ body{
     background-color: #f8f9fa;
 }
 
-.logo {
+.logo a{
     font-size: 18px;
     font-weight: bold;
     display: flex;
+    text-decoration:none;
+    color:black;
     align-items: center;
     gap: 8px; /* Adds space between the image and the text */
 }
