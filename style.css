@@ -83,7 +83,7 @@ header{
     overflow-y: auto; 
     position: relative;/* Makes the chat window scrollable */
     flex-grow: 1; /* This makes the chat window grow to take available space */
-    background-color: #f9f9f9;
+    background-color:white;
 }
 .message {
     margin: 10px 0;
