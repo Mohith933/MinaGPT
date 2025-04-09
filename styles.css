@@ -213,7 +213,7 @@ footer .footer-right {
     }
 
     main {
-        width: 100%; /* Full width for smaller screens */
+        width: 95%; /* Full width for smaller screens */
         margin: 20px auto;
     }
 
@@ -235,11 +235,15 @@ footer .footer-right {
 @media screen and (max-width: 576px) {
     header {
         display:flex;
-        flex-direction: column; /* Stack items vertically */
         height: auto;
         text-align: center;
+        position:sticky;
+        top:0;
     }
-
+    main {
+        width: 95%; /* Full width for smaller screens */
+        margin: 20px auto;
+    }
     .logo {
         font-size: 20px; /* Smaller logo size */
         margin: 10px 0;
