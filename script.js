@@ -48,7 +48,10 @@ document.addEventListener("DOMContentLoaded", function() {
     } else if (viewportWidth <= 400) {
       inter.style.marginTop = "540px";
       chatWindow.style = "height:530px";
-    } else if (viewportWidth <= 769) {
+    } else if (viewportWidth <=720){
+      inter.style.marginTop = "450px";
+      chatWindow.style = "height:410px";
+    }else if (viewportWidth <= 769) {
       inter.style.marginTop = "720px";
       chatWindow.style = "height:710px";
     } else if (viewportWidth <= 900) {
