@@ -33,12 +33,10 @@ header {
 
 .containers{
     display:flex;
-    padding-left: 150px; 
     padding-top: 0px;
     margin-top: 20px;
     border:1px;
     border-radius:20px;
-
 }
 .containers p{
     margin-right: 20px;
