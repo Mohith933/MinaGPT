@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
       inter.style.marginTop = "540px";
     } else {
       inter.style.marginTop = "540px";
-      chatWindow.style = "height:530px";
     }
   }
 
