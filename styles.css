@@ -240,7 +240,6 @@ footer .footer-right {
     header {
         display:flex;
         justify-content: space-between; 
-        align-items: center;/* Stack items vertically */
         height: auto;
     }
 
