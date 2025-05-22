@@ -1,0 +1,278 @@
+/* General Styles */
+body {
+    font-family:Inter;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f8f8f8;
+    color:black;
+}
+
+/* Header */
+header {
+    width: 100%;
+    display: flex;
+    position:sticky;
+    top:0;
+    height:50px;
+    overflow:hidden;
+    z-index:1;
+    justify-content: space-between;
+    background-color:white;
+    padding: 15px 20px;
+}
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    margin-top:10px;
+    margin-left:20px;
+}
+
+.containers{
+    display:flex;
+    padding-left: 150px; 
+    padding-top: 0px;
+    margin-top: 20px;
+    border:1px;
+    border-radius:20px;
+
+}
+.containers p{
+    margin-right: 20px;
+}
+audio{
+    width:300px;
+}
+.auth-buttons button {
+    padding: 15px 15px;
+    margin-top:5px;
+    font-size:14px;
+    margin-right:20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.login {
+    background: black;
+    color: white;
+}
+/* Main Content */
+main {
+    width: 700px;
+    margin: 40px auto;
+    text-align: center;
+    font-weight:bold;
+    justify-content: flex-end;
+}
+
+.intro .date{
+    font-size:16px;
+    font-weight: lighter;
+}
+.intro .product-tag{
+    font-size:14px;
+    color:grey;
+    padding-left:10px;
+}
+.intro .product-tag:hover{
+ color:black;
+}
+.intro h2{
+    font-size:58px;
+    font-weight:lighter; 
+    margin-bottom: 24px;
+ margin-top: 5px;
+}
+.try-button {
+    padding: 12px 25px;
+    background-color:black;
+    color: white;
+    border: 1px;
+    font-weight:bold;
+    box-shadow:2px 2px 2px 2px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.description {
+    margin-top: 24px;
+    margin-bottom:24px;
+    text-align: left;
+    line-height: 1.6;
+    font-weight: lighter;
+}
+
+/* Sections */
+.methods, .limitations {
+    text-align: left;
+    margin-top: 40px;
+    font-weight:lighter;
+    line-height: 1.6;
+}
+
+.methods p{
+    margin-top:5px;
+    font-size:16px;
+}
+.methods h3{
+    margin-bottom: 0px;
+}
+.limitations p{
+    margin-top:5px;
+    font-size:16px;
+}
+.limitations h3{
+    margin-bottom: 0px;
+}
+h3 {
+    display: inline-block;
+    padding-bottom: 5px;
+    font-size:30px;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* This will place items at both ends */
+    align-items: center; /* This will vertically align the content in the middle */
+    padding: 20px;
+    font-weight: bolder;
+    background-color: white;
+    margin-top: 50px;
+}
+footer .footer-right {
+    margin-right:20px;
+    text-align: right; /* Align the button to the right */
+}
+
+.lang-button {
+    border: 1px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.1);
+}
+
+.greys {
+    margin-left: 15px;
+    font-size: 12px;
+    color: grey;
+}
+
+.small{
+    width:10px;
+    height:10px;
+    margin-left:5px;
+    rotate:inherit;
+}
+.footer-left{
+    text-align: center;
+}
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    header {
+        background-color: black;
+        color: white;
+    }
+
+    button {
+        background-color: #0056b3;
+        color: white;
+    }
+    footer{
+        background-color: black;
+        color:white;
+    }
+    .lang-button{
+        background-color: #121212;
+        color:white;
+    }
+    .try-button{
+        background-color:white;
+        color:black;
+    }
+    .login{
+        background-color: #121212;
+        color:white;
+    }
+}
+/* For screens smaller than 768px (Tablets and small devices) */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+        justify-content: flex-start;
+    }
+
+    main {
+        width: 100%; /* Full width for smaller screens */
+        margin: 20px auto;
+    }
+
+    .intro h2 {
+        font-size: 36px; /* Smaller heading size */
+    }
+
+    .description, .methods, .limitations {
+        font-size: 14px; /* Adjust text size */
+    }
+
+    .try-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* For screens smaller than 576px (Mobile devices) */
+@media screen and (max-width: 576px) {
+    header {
+        display:flex;
+        justify-content: space-between; 
+        align-items: center;/* Stack items vertically */
+        height: auto;
+    }
+
+    .logo {
+        font-size: 20px; /* Smaller logo size */
+        margin: 15px;
+    }
+    audio{
+        width:300px;
+    }
+
+    .containers {
+        flex-direction: column; /* Stack container items */
+        padding-left: 10px;
+        margin-top: 10px;
+    }
+
+    .auth-buttons button {
+        margin-bottom: 10px; /* Add spacing between buttons */
+    }
+
+    footer {
+        flex-direction: column; /* Stack footer items */
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
+        margin-left:0px;
+    }
+
+    .lang-button {
+        margin-bottom: 10px; /* Add spacing for smaller layouts */
+    }
+}
+
+
