@@ -1,0 +1,500 @@
+/* General Styles */
+body {
+    font-family: Inter;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f8f8f8;
+    color: black;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+body.sidebar-open {
+    filter: blur(4px) brightness(0.9);
+    transform: scale(0.98);
+    pointer-events: none;
+    /* prevent interaction with blurred content */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 220px;
+    background-color: white;
+    color: black;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+
+    padding-top: 10px;
+    transform: translateX(-100%);
+    /* hide it by default */
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+    /* show it */
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: whitesmoke;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* spacing between ☰ and logo */
+    margin-left: 10px;
+}
+
+.menu-icon {
+    font-size: 20px;
+    padding: 6px 12px;
+    margin-top: 5px;
+    color: black;
+    background-color: transparent;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.menu-icon:hover {
+    background-color: transparent
+}
+
+.medium {
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+}
+
+/* Header */
+header {
+    width: 100%;
+    display: flex;
+    position: sticky;
+    top: 0;
+    height: 50px;
+    overflow: hidden;
+    z-index: 100;
+    justify-content: space-between;
+    background-color: white;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.logos {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 60px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.containers {
+    display: flex;
+    padding-left: 150px;
+    padding-top: 0px;
+    margin-top: 20px;
+    border: 1px;
+    border-radius: 20px;
+
+}
+
+.containers p {
+    margin-right: 20px;
+}
+
+.containers {
+    max-width: 420px;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    color: black;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.custom-audio-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 10px 15px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.play-pause {
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.play-pause:hover {
+    background:#202123;
+}
+
+.seek-bar {
+    flex: 1;
+    height: 4px;
+    background: black;
+    border-radius: 5px;
+    appearance: none;
+    cursor: pointer;
+}
+
+.seek-bar::-webkit-slider-thumb {
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background:black;
+    border: none;
+    margin-top: -4px;
+}
+
+.time {
+    font-size: 14px;
+    color: black;
+    min-width: 40px;
+    text-align: right;
+}
+
+.auth-buttons button {
+    padding: 15px 15px;
+    margin-top: 5px;
+    font-size: 14px;
+    margin-right: 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.login {
+    background: black;
+    color: white;
+}
+
+/* Main Content */
+main {
+    width: 700px;
+    margin: 40px auto;
+    text-align: center;
+    font-weight: bold;
+    justify-content: flex-end;
+}
+
+.intro .date {
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+.intro .product-tag {
+    font-size: 14px;
+    color: grey;
+    padding-left: 10px;
+}
+
+.intro .product-tag:hover {
+    color: black;
+}
+
+.intro h2 {
+    font-size: 58px;
+    font-weight: lighter;
+    margin-bottom: 24px;
+    margin-top: 5px;
+}
+
+.try-button {
+    padding: 12px 25px;
+    background-color: black;
+    color: white;
+    border: 1px;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.description {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    text-align: left;
+    line-height: 1.6;
+    font-weight: lighter;
+}
+
+/* Sections */
+.methods,
+.limitations {
+    text-align: left;
+    margin-top: 40px;
+    font-weight: lighter;
+    line-height: 1.6;
+}
+
+.methods p {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.methods h3 {
+    margin-bottom: 0px;
+}
+
+.limitations p {
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.limitations h3 {
+    margin-bottom: 0px;
+}
+
+h3 {
+    display: inline-block;
+    padding-bottom: 5px;
+    font-size: 30px;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* This will place items at both ends */
+    align-items: center;
+    /* This will vertically align the content in the middle */
+    padding: 20px;
+    font-weight: bolder;
+    background-color: white;
+    margin-top: 50px;
+}
+
+footer .footer-right {
+    margin-right: 20px;
+    text-align: right;
+    /* Align the button to the right */
+}
+
+.lang-button {
+    border: 1px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: white;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.greys {
+    margin-left: 15px;
+    font-size: 12px;
+    color: grey;
+}
+
+.small {
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+    rotate: inherit;
+}
+
+.footer-left {
+    text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+        color: white;
+    }
+
+    header {
+        background-color: black;
+        color: white;
+    }
+
+    .menu-icon {
+        background-color: #202123;
+        color: white;
+    }
+
+    .sidebar {
+        background-color: black;
+        color: white;
+    }
+
+    .sidebar a {
+        color: white;
+    }
+
+    .sidebar a:hover {
+        background-color: #121212;
+    }
+
+    .menu-icon:hover {
+        background-color: transparent;
+    }
+
+    button {
+        background-color: #0056b3;
+        color: white;
+    }
+
+    footer {
+        background-color: black;
+        color: white;
+    }
+
+    .lang-button {
+        background-color: #121212;
+        color: white;
+    }
+
+    .try-button {
+        background-color: white;
+        color: black;
+    }
+
+    .login {
+        background-color: #121212;
+        color: white;
+    }
+    .containers{
+        color:white;
+    }
+    .time{
+        color:white;
+    }
+    .seek-bar{
+        background:white;
+    }
+    .play-pause{
+        background-color: white;
+        color:black;
+    }
+    .seek-bar::-webkit-slider-thumb{
+        background:white;
+    }
+    .menu-icon{
+        background-color: transparent;
+    }
+    .menu-icon:hover{
+        background-color: transparent;
+    }
+}
+/* For screens smaller than 768px (Tablets and small devices) */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+        justify-content: flex-start;
+    }
+
+    main {
+        width: 100%;
+        /* Full width for smaller screens */
+        margin: 20px auto;
+    }
+
+    .intro h2 {
+        font-size: 36px;
+        /* Smaller heading size */
+    }
+
+    .description,
+    .methods,
+    .limitations {
+        font-size: 14px;
+        /* Adjust text size */
+    }
+
+    .try-button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* For screens smaller than 576px (Mobile devices) */
+@media screen and (max-width: 576px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* Stack items vertically */
+        height: auto;
+    }
+
+    .menu-icon {
+        margin-top: 0px;
+    }
+
+    .logo {
+        font-size: 20px;
+        /* Smaller logo size */
+        margin: 15px;
+    }
+
+    audio {
+        width: 300px;
+    }
+
+    .containers {
+        flex-direction: column;
+        /* Stack container items */
+        padding-left: 10px;
+        margin-top: 10px;
+    }
+
+    .auth-buttons button {
+        margin-bottom: 10px;
+        /* Add spacing between buttons */
+    }
+
+    footer {
+        flex-direction: column;
+        /* Stack footer items */
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+
+    .lang-button {
+        margin-bottom: 10px;
+        /* Add spacing for smaller layouts */
+    }
+}

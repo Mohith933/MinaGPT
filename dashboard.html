@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinaGPT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <!-- Add this inside the <body> of dashboard.html -->
+ <div class="logos">MinaGPT</div>
+<div class="sidebar" id="sidebar">
+    <a href="home.html">🏠</a>
+    <a href="dashboard.html">📊</a>
+    <a href="models.html">🧠</a>
+    <a href="settings.html">⚙️</a>
+    </div>
+    <div class="avatar-dropdown">
+      <img src="avatar.png" alt="Account" class="avatar" onclick="toggleAvatarMenu()">
+      <div class="avatar-menu" id="avatarMenu">
+        <a href="profile.html">Profile</a>
+        <a href="settings.html">Settings</a>
+        <a href="logout.html">Logout</a>
+</div>
+<!-- Sidebar Toggle Icon -->
+<div class="menu-icon" onclick="toggleSidebar()">☰</div>
+ 
+    </header>
+    <main>
+        <div class="chat-container">
+            <img src="chat.png">
+            <h3>What can I help with?</h3>
+        </div>
+        <div class="chat-window"></div>
+        <div class="input-area"> 
+            <textarea class="Messagebox" placeholder="Message MinaGPT"></textarea>
+            <br>
+            <button class="send-btn">↑</button>
+        </div>
+    </main>
+    <footer>
+        <p>By messaging MinaGPT, you agree to our Terms and have read our Privacy Policy.</p>
+    </footer>
+    <script src="script.js">
+        <div id="header-include"></div>
+  fetch("header.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("header-include").innerHTML = data);
+    </script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinaGPT</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter;
+    background-color: white;
+    flex-direction: column;
+}
+
+.container {
+    background:white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin-top:50px;
+    width:100%;
+    max-width: 400px;
+}
+input{
+    border-radius: 20px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.phone-btn, .google-btn, .apple-btn {
+    background: #f4f4f4;
+}
+
+.phone-btn {
+    color: #333;
+}
+
+.google-btn {
+    color: #DB4437;
+}
+
+.apple-btn {
+    color: #000;
+}
+
+#signup-text {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.separator span {
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+footer {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+}
+
+footer a {
+    color: #333;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.header {
+    width:100%;
+    display: flex;
+    margin-left:40px;
+    justify-content: space-between;
+    align-items: center;
+    padding:15px;
+}
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.header h2 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+label{
+    text-align: left;
+}
+.header p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.header .domain-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
+    margin-top: 1rem;
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            MinaGPT
+        </div>
+    </header>
+    <center>
+    <div class="container">
+        <h1 id="form-title">Welcome Back</h1>
+        <form id="auth-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter Email Here" autocomplete="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter Password Here" autocomplete="current-password" required>
+            <button type="submit">Continue</button>
+        </form>
+        
+        <p id="signup-text">Don't have an account? <a href="#" id="toggle-form">Sign up</a></p>
+        
+        <div class="separator">
+            <span>Or</span>
+        </div>
+        
+        <div class="auth-buttons">
+            <button class="phone-btn">📞 Continue with Phone</button>
+            <button class="google-btn">🌐 Continue with Google</button>
+            <button class="apple-btn">🍎 Continue with Apple ID</button>
+        </div>
+        
+        <footer>
+            <a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a>
+        </footer>
+    </div>
+</center>
+
+    <script>
+    document.getElementById('toggle-form').addEventListener('click', function() {
+    const formTitle = document.getElementById('form-title');
+    const signupText = document.getElementById('signup-text');
+    
+    if (formTitle.textContent === 'Welcome Back') {
+        formTitle.textContent = 'Create An Account';
+        signupText.innerHTML = "Already have an account? <a href='dashboard.html' id='toggle-form'>Sign in</a>";
+    } else {
+        formTitle.textContent = 'Welcome Back';
+        signupText.innerHTML = "Don't have an account? <a href='#' id='toggle-form'>Sign up</a>";
+    }
+});
+    </script>
+</body>
+</html>
