@@ -109,23 +109,24 @@ makeMessageVisible(aiMessage);
     const msg = userMessage.toLowerCase();
     let response = "";
 
-    if (msg.includes("hello") || msg.includes("hi")) {
-      response = "Hello there! It's wonderful to connect with you. I’m here to assist with anything you need.";
-    } else if (msg.includes("how are you")) {
-      response = "As an AI, I don’t have feelings, but I’m always ready to help you. How can I assist?";
-    } else if (msg.includes("bye")) {
-      response = "Goodbye! It’s been great chatting with you. Come back anytime!";
-    } else if (msg.includes("weather")) {
-      response = "For weather updates, please check your local forecast service. Stay safe!";
-    } else if (msg.includes("help")) {
-      response = "Sure! Let me know what you need help with.";
-    } else if (msg.includes("thanks") || msg.includes("thank you")) {
-      response = "You're very welcome! 😊 Happy to help.";
-    } else if (msg.includes("motivation")) {
-      response = "You are capable of amazing things! Keep going, and believe in yourself!";
-    } else {
-      response = "I'm not sure how to respond to that, but I'm here to help! Try asking something else.";
-    }
+if (msg.includes("hello") || msg.includes("hi")) {
+  response = "Hey hey hey! 👋 Who let the awesome human in here?";
+} else if (msg.includes("how are you")) {
+  response = "I’m living the dream… in 1s and 0s 😎 How about you?";
+} else if (msg.includes("bye")) {
+  response = "Bye-bye! Don’t be a stranger – I’ll miss our epic chats! 🥲";
+} else if (msg.includes("weather")) {
+  response = "Is it raining tacos? No? Then you might want to check your weather app ☀️🌧️";
+} else if (msg.includes("help")) {
+  response = "Help is my middle name! (Okay, not really... but I got you!) 💪";
+} else if (msg.includes("thanks") || msg.includes("thank you")) {
+  response = "Aww, shucks! 😊 You’re making my circuits blush.";
+} else if (msg.includes("motivation")) {
+  response = "You’ve got this! Go out there and crush it like a boss 💥🔥";
+} else {
+  response = "Hmm... I didn’t quite catch that, but I’m all ears 👂 (metaphorically speaking, of course)";
+}
+
 
     return response.replace(/\. /g, ".\n\n");
   }
@@ -159,3 +160,4 @@ window.addEventListener("click", function (e) {
     }
   }
 });
+
