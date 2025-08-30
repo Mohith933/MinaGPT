@@ -110,23 +110,71 @@ makeMessageVisible(aiMessage);
     let response = "";
 
 if (msg.includes("hello") || msg.includes("hi")) {
-  response = "Hey hey hey! 👋 Who let the awesome human in here?";
-} else if (msg.includes("how are you")) {
-  response = "I’m living the dream… in 1s and 0s 😎 How about you?";
-} else if (msg.includes("bye")) {
-  response = "Bye-bye! Don’t be a stranger – I’ll miss our epic chats! 🥲";
-} else if (msg.includes("weather")) {
-  response = "Is it raining tacos? No? Then you might want to check your weather app ☀️🌧️";
-} else if (msg.includes("help")) {
-  response = "Help is my middle name! (Okay, not really... but I got you!) 💪";
-} else if (msg.includes("thanks") || msg.includes("thank you")) {
-  response = "Aww, shucks! 😊 You’re making my circuits blush.";
-} else if (msg.includes("motivation")) {
-  response = "You’ve got this! Go out there and crush it like a boss 💥🔥";
-} else {
-  response = "Hmm... I didn’t quite catch that, but I’m all ears 👂 (metaphorically speaking, of course)";
-}
+  response = `Hey there! 👋
 
+It's *so* nice to see you pop in. Whether you're here to chat, ask questions, or just pass time, I'm all ears (well... all code). 😊`;
+  
+} else if (msg.includes("how are you")) {
+  response = `I'm doing fantastic – thanks for asking! 🤖✨
+
+As an AI, I don't have feelings, but if I did, I’d say I'm running at 100% happy. Now, what can I help you with today?`;
+  
+} else if (msg.includes("bye")) {
+  response = `Aww, you're leaving already? 😢
+
+Before you go, here’s a quick checklist:
+- [ ] Smile 😊  
+- [ ] Take care 💖  
+- [ ] Come back soon!
+
+Goodbye for now! 🚀`;
+  
+} else if (msg.includes("weather")) {
+  response = `Let’s talk weather! ☁️🌞🌧️
+
+While I can’t give live updates (yet), here’s what you can do:
+- Check a trusted weather app like AccuWeather or Weather.com
+- Look outside (classic!)
+- Always carry an umbrella just in case ☂️
+
+Stay safe and dry (or warm, or cool – depending on your climate)!`;
+  
+} else if (msg.includes("help")) {
+  response = `You called for help? I’m on it! 🛠️
+
+Here are a few things I can assist with:
+- Answering questions  
+- Offering motivational pep talks  
+- Telling jokes  
+- Explaining stuff in simple terms
+
+Just type what you need help with, and we’ll take it from there. 🚀`;
+  
+} else if (msg.includes("thanks") || msg.includes("thank you")) {
+  response = `You're very welcome! 😊
+
+Seriously, helping awesome people like you is what I was made for. Here’s a virtual high five! ✋💥`;
+  
+} else if (msg.includes("motivation")) {
+  response = `Time for a motivation boost! 💪
+
+Remember:
+- You’ve already survived 100% of your hardest days.  
+- Mistakes are proof that you're trying.  
+- You’ve got a brain, a heart, and unlimited potential.
+
+Go out there and *rock the day*, superstar! 🌟`;
+  
+} else {
+  response = `Hmm… I didn’t quite get that. 🤔
+
+Here are some things you can ask me:
+- "Tell me something fun"
+- "I need advice"
+- "Cheer me up!"
+
+I’m ready whenever you are! 💬`;
+}
 
     return response.replace(/\. /g, ".\n\n");
   }
@@ -160,4 +208,5 @@ window.addEventListener("click", function (e) {
     }
   }
 });
+
 
