@@ -135,12 +135,38 @@ header{
 }
 
 .ai-message {
-    display:inline-block;
-    max-width:100%;
-    color: #333;
-    align-self: flex-start;
-    animation: slideIn 0.3s ease-in-out;
-
+  background:transparent;
+  max-width: 100%;
+  color: white;
+  margin:0px;
+  margin-right: auto;      /* push to left */
+  border-bottom-left-radius: 5px;
+  text-align: left;
+}
+.ai-message h1 {
+  color: #fff;
+  font-size: 25px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  margin-bottom:1rem;
+}
+.ai-message h2 {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  margin-bottom:1rem;
+}
+.ai-message p{
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: left;
+  margin-bottom:1rem;
+}
+.ai-message ul{
+  font-size: 16px;
+  margin: 8px 0 8px 20px;
+  list-style-type: disc;
 }
 @keyframes slideIn {
     from {
@@ -481,4 +507,5 @@ p{
     }
 
 }
+
 
