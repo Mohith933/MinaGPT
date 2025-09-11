@@ -92,92 +92,132 @@ makeMessageVisible(aiMessage);
     }, 10);
   }
 
-  function typeText(element, text, delay = 30) {
-    element.textContent = "";
-    let i = 0;
-    function type() {
-      if (i < text.length) {
-        element.textContent += text.charAt(i);
-        i++;
-        setTimeout(type, delay);
+  function typeText(element, html, delay = 30) {
+  element.innerHTML = ""; 
+
+  // Convert HTML string into DOM nodes
+  const tempDiv = document.createElement("div");
+  tempDiv.innerHTML = html;
+  const nodes = Array.from(tempDiv.childNodes);
+
+  function typeNode(node, parent, callback) {
+    if (node.nodeType === Node.TEXT_NODE) {
+      // Type text character by character
+      let text = node.textContent;
+      let i = 0;
+      function typeChar() {
+        if (i < text.length) {
+          parent.appendChild(document.createTextNode(text.charAt(i)));
+          i++;
+          setTimeout(typeChar, delay);
+        } else {
+          callback();
+        }
       }
+      typeChar();
+    } else if (node.nodeType === Node.ELEMENT_NODE) {
+      // Create the element, then type inside
+      const newEl = document.createElement(node.tagName.toLowerCase());
+
+      // Copy attributes (like class)
+      for (let attr of node.attributes) {
+        newEl.setAttribute(attr.name, attr.value);
+      }
+
+      parent.appendChild(newEl);
+
+      const children = Array.from(node.childNodes);
+      let idx = 0;
+      function nextChild() {
+        if (idx < children.length) {
+          typeNode(children[idx], newEl, () => {
+            idx++;
+            nextChild();
+          });
+        } else {
+          callback();
+        }
+      }
+      nextChild();
+    } else {
+      callback();
     }
-    type();
   }
 
-  async function generateAIResponse(userMessage) {
-    const msg = userMessage.toLowerCase();
-    let response = "";
-
-if (msg.includes("hello") || msg.includes("hi")) {
-  response = `Hey there! 👋
-
-It's *so* nice to see you pop in. Whether you're here to chat, ask questions, or just pass time, I'm all ears (well... all code). 😊`;
-  
-} else if (msg.includes("how are you")) {
-  response = `I'm doing fantastic – thanks for asking! 🤖✨
-
-As an AI, I don't have feelings, but if I did, I’d say I'm running at 100% happy. Now, what can I help you with today?`;
-  
-} else if (msg.includes("bye")) {
-  response = `Aww, you're leaving already? 😢
-
-Before you go, here’s a quick checklist:
-- [ ] Smile 😊  
-- [ ] Take care 💖  
-- [ ] Come back soon!
-
-Goodbye for now! 🚀`;
-  
-} else if (msg.includes("weather")) {
-  response = `Let’s talk weather! ☁️🌞🌧️
-
-While I can’t give live updates (yet), here’s what you can do:
-- Check a trusted weather app like AccuWeather or Weather.com
-- Look outside (classic!)
-- Always carry an umbrella just in case ☂️
-
-Stay safe and dry (or warm, or cool – depending on your climate)!`;
-  
-} else if (msg.includes("help")) {
-  response = `You called for help? I’m on it! 🛠️
-
-Here are a few things I can assist with:
-- Answering questions  
-- Offering motivational pep talks  
-- Telling jokes  
-- Explaining stuff in simple terms
-
-Just type what you need help with, and we’ll take it from there. 🚀`;
-  
-} else if (msg.includes("thanks") || msg.includes("thank you")) {
-  response = `You're very welcome! 😊
-
-Seriously, helping awesome people like you is what I was made for. Here’s a virtual high five! ✋💥`;
-  
-} else if (msg.includes("motivation")) {
-  response = `Time for a motivation boost! 💪
-
-Remember:
-- You’ve already survived 100% of your hardest days.  
-- Mistakes are proof that you're trying.  
-- You’ve got a brain, a heart, and unlimited potential.
-
-Go out there and *rock the day*, superstar! 🌟`;
-  
-} else {
-  response = `Hmm… I didn’t quite get that. 🤔
-
-Here are some things you can ask me:
-- "Tell me something fun"
-- "I need advice"
-- "Cheer me up!"
-
-I’m ready whenever you are! 💬`;
+  let idx = 0;
+  function nextNode() {
+    if (idx < nodes.length) {
+      typeNode(nodes[idx], element, () => {
+        idx++;
+        nextNode();
+      });
+    }
+  }
+  nextNode();
 }
 
-    return response.replace(/\. /g, ".\n\n");
+
+ async function generateAIResponse(userMessage) {
+  const msg = userMessage.toLowerCase();
+  let response = "";
+
+  // Short greetings
+  if(msg.includes("hello")||msg.includes("hi")){
+    response = `<p class="short-reply">👋 Hey there! Ready to explore knowledge and code magic? 💻✨</p>`;
+  } else if(msg.includes("how are you")){
+    response = `<p class="short-reply">🤖 I’m fully compiled and running smoothly! How’s your learning today? 😎</p>`;
   }
+
+  // C Language
+  else if(msg.includes("what is c language?")){
+    response = `<h1>💻 C Language</h1><h2>Definition</h2><p>C is a procedural programming language, widely used for system programming and embedded devices.</p><h2>Key Points</h2><ul><li>Created by Dennis Ritchie in 1972</li><li>Used for OS, embedded systems, high-performance apps</li><li>Basis for many modern languages</li></ul><h2>Example Program</h2><pre><code>#include &lt;stdio.h&gt;\nint main(){\n  printf("Hello, World!\\n");\n  return 0;\n}</code></pre>`;
+
+  }
+
+  // Python
+  else if(msg.includes("what is python?")||msg.includes("python program example")||msg.includes("py")){
+    response = `<h1>🐍 Python</h1><h2>Definition</h2><p>Python is high-level, interpreted, and known for readability. Great for AI, web dev, automation, and scripting.</p><h2>Key Points</h2><ul><li>Created by Guido van Rossum in 1991</li><li>Supports procedural, OOP, and functional programming</li><li>Used in AI, data science, web dev</li></ul><h2>Example Program</h2><pre><code>print("Hello, Python World!")</code></pre>`;
+
+  }
+
+  // Java
+  else if(msg.includes("what is java?")){
+    response = `<h1>☕ Java</h1><h2>Definition</h2><p>Java is object-oriented, runs on JVM, and widely used for enterprise apps and Android development.</p><h2>Key Points</h2><ul><li>Created by James Gosling in 1995</li><li>"Write Once, Run Anywhere"</li><li>Strongly typed and widely used in large-scale apps</li></ul><h2>Example Program</h2><pre><code>public class Main{\n  public static void main(String[] args){\n    System.out.println("Hello, Java World!");\n  }\n}</code></pre>`;
+
+  }
+
+  // JavaScript
+  else if(msg.includes("what is javascript?")){
+    response = `<h1>✨ JavaScript</h1><h2>Definition</h2><p>JavaScript is the programming language of the web for dynamic websites and Node.js apps.</p><h2>Key Points</h2><ul><li>Created by Brendan Eich in 1995</li><li>Supports front-end and back-end development</li><li>Event-driven, functional, and OOP</li></ul><h2>Example Program</h2><pre><code>console.log("Hello, JavaScript World!");</code></pre>`;
+
+  }
+
+  // OS subject
+  else if(msg.includes("what is os")){
+    response = `<h1>🖥️ Operating System (OS)</h1><h2>Definition</h2><p>An OS manages computer hardware, software, and provides services for computer programs.</p><h2>Key Points</h2><ul><li>Handles memory, processes, and storage</li><li>Examples: Windows, Linux, macOS</li><li>Provides user interface and resource management</li></ul>`;
+
+  }
+
+  // System Testing
+  else if(msg.includes("system testing")){
+    response = `<h1>🧪 System Testing</h1><h2>Definition</h2><p>System testing is a level of software testing that validates the complete and integrated software product.</p><h2>Key Points</h2><ul><li>Tests functional and non-functional requirements</li><li>Performed after integration testing</li><li>Ensures software works as intended</li></ul>`;
+
+  }
+
+  // Motivational Quote
+  else if(msg.includes("motivation")||msg.includes("inspire")){
+    response = `<h1>💡 Motivation</h1><p>"The only way to do great work is to love what you do." - Steve Jobs</p><p>Keep learning and coding every day! 🚀</p>`;
+
+  }
+
+  // Default / unknown
+  else{
+    response = `<h1>💡 Programming & Knowledge Helper</h1><p>I can explain programming languages, subjects like OS, system testing, and also share motivational quotes.</p><h2>Try asking about:</h2><ul><li>C, C++</li><li>Python, Java</li><li>JavaScript, C#</li><li>PHP, Ruby</li><li>Go, Rust</li><li>Operating System (OS)</li><li>System Testing</li><li>Motivation & Inspiration</li></ul><p>Which one would you like to explore first? 😎</p>`;
+  }
+
+  return `<div class="ai-message">${response}</div>`;
+}
+
 });
 
 // Sidebar toggle
@@ -208,5 +248,6 @@ window.addEventListener("click", function (e) {
     }
   }
 });
+
 
 
