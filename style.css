@@ -112,7 +112,7 @@ header{
     margin: 10px 0;
     padding: 10px;
     border-radius:10px;
-    max-width: 80%;
+    max-width: 100%;
     word-wrap: break-word;
     word-spacing: normal;
     word-break: break-all;
@@ -137,36 +137,50 @@ header{
 .ai-message {
   background:transparent;
   max-width: 100%;
-  color: white;
+  color:black;
   margin:0px;
   margin-right: auto;      /* push to left */
   border-bottom-left-radius: 5px;
   text-align: left;
 }
 .ai-message h1 {
-  color: #fff;
+  color: #000;
   font-size: 25px;
   margin-bottom: 8px;
   font-weight: 600;
-  margin-bottom:1rem;
+   margin-bottom: 1rem;
 }
 .ai-message h2 {
-  color: #fff;
+  color: #000;
   font-size: 20px;
   margin-bottom: 8px;
   font-weight: 600;
-  margin-bottom:1rem;
+   margin-bottom: 1rem;
 }
-.ai-message p{
+.ai-message p {
   font-size: 16px;
+  color:#000;
   line-height: 1.5;
   text-align: left;
-  margin-bottom:1rem;
+  margin-bottom: 1rem;
 }
-.ai-message ul{
+.ai-message ul {
   font-size: 16px;
+  color:#000;
   margin: 8px 0 8px 20px;
   list-style-type: disc;
+}
+.short-reply {
+  font-size: 1.2em;
+  color: #000;
+  font-weight: 500;
+}
+.ai-meesage pre{
+    color:#000;
+}
+.upper-arrow{
+    margin-top:600px;
+    margin-left:350px;
 }
 @keyframes slideIn {
     from {
@@ -334,7 +348,6 @@ p{
   margin-right: 10px;
   border-radius: 50%;
 }
-
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #333;
@@ -402,6 +415,91 @@ p{
         color: white;
     }
 }
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333;
+        color: white;
+    }
+
+    header {
+        background-color: #333;
+    }
+
+    header .logo {
+        color: white;
+    }
+
+    header .logo img {
+        filter: invert(1);
+    }
+
+    button {
+        background-color: black;
+        color: white;
+    }
+
+    button:hover {
+        background-color: #777;
+    }
+
+    main {
+        background-color: #333;
+    }
+
+    footer {
+        background-color:#333;
+        color: white;
+    }
+    .chat-container img{
+        color:#444;
+    }
+    p{
+        color:white;
+    }
+    .Messagebox{
+        background-color: #444;
+        color:white;
+
+    }
+    .chat-window{
+        background-color:#333;
+        color: white;
+    }
+    .user-message{
+        background-color: #444;
+        color:white;
+    }
+    .ai-message{
+        color:white;
+    }
+    .ai-message h1{
+        color:#fff;
+    }
+    .ai-message h2{
+        color:#fff;
+    }
+    .ai-message p{
+        color:#fff;
+    }
+    .ai-message ul{
+        color:#fff;
+    }
+    .short-reply{
+        color:#fff;
+    }
+    .ai-meesage pre{
+        color:#fff;
+    }
+    .login-btn{
+        background-color: #777;
+        color:white;
+    }
+
+    .send-btn {
+        background-color: grey;
+        color: white;
+    }
+}
 
 
 @media (min-width: 375px) and (max-width: 915px) {
@@ -426,7 +524,7 @@ p{
     }
     .chat-window{
         width:350px;
-        max-height: 60vh;
+        max-height: 65vh;
     }
     .avatar-dropdown{
         margin-left:250px;
@@ -496,7 +594,7 @@ p{
     }
     .chat-window{
         width:345px;
-        max-height:65vh;
+        max-height:70vh;
     }
 
 }
@@ -507,6 +605,4 @@ p{
     }
 
 }
-
-
 
