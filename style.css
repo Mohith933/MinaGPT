@@ -594,7 +594,7 @@ p{
     }
     .chat-window{
         width:345px;
-        max-height:55vh;
+        max-height:60vh;
     }
 
 }
@@ -605,5 +605,6 @@ p{
     }
 
 }
+
 
 
