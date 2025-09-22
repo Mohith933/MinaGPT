@@ -103,7 +103,7 @@ header{
     display: flex;
     flex-direction: column;
     overflow-y:auto;
-    max-height:75vh;
+    padding-bottom:20px;
     scroll-behavior: smooth;
     flex-grow: 1;
     background-color: #f9f9f9;
@@ -594,17 +594,18 @@ p{
     }
     .chat-window{
         width:345px;
-        max-height:60vh;
+        padding-bottom:20px;
     }
 
 }
 @media (max-height:400px) and (orientation: landscape) {
     
     .chat-window{
-        max-height: 30vh;
+        padding-bottom:20px;
     }
 
 }
+
 
 
 
