@@ -103,7 +103,7 @@ header{
     display: flex;
     flex-direction: column;
     overflow-y:auto;
-    padding-bottom:20px;
+    max-height:75vh;
     scroll-behavior: smooth;
     flex-grow: 1;
     background-color: #f9f9f9;
@@ -568,6 +568,7 @@ p{
 
     .chat-window {
       width:550px;
+        max-height:55vh;
     }
     .logo .smalls {
         width: 16px;
@@ -594,7 +595,7 @@ p{
     }
     .chat-window{
         width:345px;
-        padding-bottom:20px;
+        max-height:60vh;
     }
 
 }
@@ -605,6 +606,7 @@ p{
     }
 
 }
+
 
 
 
