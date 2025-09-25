@@ -70,21 +70,43 @@ header{
     border:1px solid #EDEDED;
     padding-left:5px;
 }
-/* Style for the New Chat button */
 .typing {
-  background-color: #444;
-  padding: 10px 14px;
-  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
   font-size: 14px;
-  animation: blink 1.2s infinite ease-in-out;
-  color: white;
+  color: #666;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+.typing span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  background: #666;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite;
 }
 
+.typing span:nth-child(1) {
+  animation-delay: 0s;
+}
+.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 
 /* Additional styling for other elements (optional) */
 .auth-buttons {
@@ -606,6 +628,7 @@ p{
     }
 
 }
+
 
 
 
