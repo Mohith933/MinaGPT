@@ -78,7 +78,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // AI typing placeholder
     const aiMessage = document.createElement("div");
     aiMessage.classList.add("message", "ai-message");
-    aiMessage.innerHTML = `<span class="typing">MinaGPT is typing...</span>`;
+    aiMessage.innerHTML = `
+  <div class="typing">
+    <span></span><span></span><span></span>
+  </div>
+`;
     chatWindow.appendChild(aiMessage);
     makeMessageVisible(aiMessage);
 
@@ -208,3 +212,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
