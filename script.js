@@ -101,87 +101,227 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 10);
   }
 
-  // --- Typing Effect ---
-  function typeText(element, htmlContent, speed = 40) {
-    let i = 0;
-    const plainText = htmlContent.replace(/<[^>]+>/g, ""); // strip tags for typing
+  /// --- Typing Effect ---
+function typeText(element, htmlContent, speed = 15) {  // ⚡ faster typing
+  let i = 0;
+  const plainText = htmlContent.replace(/<[^>]+>/g, ""); // strip tags for typing
 
-    element.innerHTML = ""; // start empty
+  element.innerHTML = ""; // start empty
 
-    function typeChar() {
-      if (i < plainText.length) {
-        element.textContent = plainText.substring(0, i + 1);
-        i++;
-        chatWindow.scrollTop = chatWindow.scrollHeight;
-        setTimeout(typeChar, speed);
-      } else {
-        element.innerHTML = htmlContent; // restore formatting
-        chatWindow.scrollTop = chatWindow.scrollHeight;
-      }
+  function typeChar() {
+    if (i < plainText.length) {
+      element.textContent = plainText.substring(0, i + 1);
+      i++;
+      chatWindow.scrollTop = chatWindow.scrollHeight;
+      setTimeout(typeChar, speed);
+    } else {
+      element.innerHTML = htmlContent; // restore formatting
+      chatWindow.scrollTop = chatWindow.scrollHeight;
     }
-
-    typeChar();
   }
 
+  typeChar();
+}
   // --- AI Response Generator ---
   async function generateAIResponse(userMessage) {
-    const msg = userMessage.toLowerCase();
-    let response = "";
+  const msg = userMessage.toLowerCase();
+  let response = "";
 
-    // Quotes for greetings
-    const morningQuotes = [
-      "The early morning has gold in its mouth. — Benjamin Franklin",
-      "Every morning we are born again. What we do today matters most. — Buddha",
-      "Wake up with determination. Go to bed with satisfaction.",
-      "Success comes to those who take action. Make today count."
-    ];
-    const eveningQuotes = [
-      "The day is over, the work is done; relax and be proud of what you've begun.",
-      "Evenings are proof that endings can be beautiful too.",
-      "Review, breathe, and be grateful for the small wins today.",
-      "Wind down — the best ideas often come when you rest."
-    ];
-    const nightQuotes = [
-      "Sleep is the best meditation. — Dalai Lama",
-      "Good night. Reset. Recharge. Repeat.",
-      "Let go of today so tomorrow can surprise you.",
-      "Rest now — tomorrow you'll be stronger."
-    ];
-
-    function pickRandom(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
-    }
-
-    // --- GREETINGS ---
-    if (msg.includes("good morning")) {
-      response = `<h1>🌅 Good Morning!</h1><p>${pickRandom(morningQuotes)}</p>`;
-    } else if (msg.includes("good evening")) {
-      response = `<h1>🌇 Good Evening!</h1><p>${pickRandom(eveningQuotes)}</p>`;
-    } else if (msg.includes("good night")) {
-      response = `<h1>🌙 Good Night!</h1><p>${pickRandom(nightQuotes)}</p>`;
-    } else if (msg.includes("hello") || msg.includes("hi")) {
-      response = `<h1>👋 Hello!</h1><p>I’m MinaGPT, ready to chat.</p>`;
-    } else if (msg.includes("how are you")) {
-      response = `<h1>🤖 I'm Running Smoothly!</h1><p>How’s your day going?</p>`;
-    }
-
-    // --- PROGRAMMING HELP ---
-    else if (msg.includes("python")) {
-      response = `<h1>🐍 Python</h1><pre><code>print("Hello, Python World!")</code></pre>`;
-    } else if (msg.includes("c language")) {
-      response = `<h1>💻 C Language</h1><pre><code>#include &lt;stdio.h&gt;\nint main(){\n  printf("Hello, World!\\n");\n}</code></pre>`;
-    } else if (msg.includes("c++")) {
-      response = `<h1>💻 C++ Language</h1><pre><code>#include &lt;iostream&gt;\nusing namespace std;\nint main(){\n  cout &lt;&lt; "Hello, C++!" &lt;&lt; endl;\n}</code></pre>`;
-    } else if (msg.includes("java")) {
-      response = `<h1>☕ Java</h1><pre><code>public class Main{\n  public static void main(String[] args){\n    System.out.println("Hello, Java!");\n  }\n}</code></pre>`;
-    } else if (msg.includes("javascript") || msg.includes("js")) {
-      response = `<h1>✨ JavaScript</h1><pre><code>console.log("Hello, JavaScript!");</code></pre>`;
-    } else {
-      response = `<p>I couldn’t find a match — try greetings, motivation, or ask about programming languages.</p>`;
-    }
-
-    return `<div class="ai-message">${response}</div>`;
+  // Random picker
+  function pickRandom(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
   }
+
+  // Quotes
+  const morningQuotes = [
+    "🌅 The early morning has gold in its mouth. — Benjamin Franklin",
+    "Every morning we are born again. What we do today matters most. — Buddha",
+    "Wake up with determination. Go to bed with satisfaction.",
+    "Success comes to those who take action. Make today count."
+  ];
+  const eveningQuotes = [
+    "🌇 The day is over, the work is done; relax and be proud of what you've begun.",
+    "Evenings are proof that endings can be beautiful too.",
+    "Review, breathe, and be grateful for the small wins today.",
+    "Wind down — the best ideas often come when you rest."
+  ];
+  const nightQuotes = [
+    "🌙 Sleep is the best meditation. — Dalai Lama",
+    "Good night. Reset. Recharge. Repeat.",
+    "Let go of today so tomorrow can surprise you.",
+    "Rest now — tomorrow you'll be stronger."
+  ];
+
+  // --- GREETINGS ---
+  if (msg.includes("good morning")) {
+    response = `<h1>🌅 Good Morning!</h1><p>${pickRandom(morningQuotes)}</p>`;
+  } else if (msg.includes("good evening")) {
+    response = `<h1>🌇 Good Evening!</h1><p>${pickRandom(eveningQuotes)}</p>`;
+  } else if (msg.includes("good night")) {
+    response = `<h1>🌙 Good Night!</h1><p>${pickRandom(nightQuotes)}</p>`;
+  } else if (msg.includes("hello") || msg.includes("hi")) {
+    response = `<h1>👋 Hello!</h1><p>I’m MinaGPT, ready to chat and help you.</p>`;
+  } else if (msg.includes("how are you")) {
+    response = `<h1>🤖 I'm Running Smoothly!</h1><p>How’s your day going?</p>`;
+  }
+
+  // --- JOKES ---
+  else if (msg.includes("joke")) {
+    const jokes = [
+      "😂 Why do programmers prefer dark mode? Because light attracts bugs!",
+      "🤣 A SQL query walks into a bar, walks up to two tables and asks: Can I join you?",
+      "😅 Debugging: Being the detective in a crime movie where you are also the murderer."
+    ];
+    response = `<h1>🤣 Joke Time!</h1><p>${pickRandom(jokes)}</p>`;
+  }
+
+  // --- PROGRAMMING LANGUAGES ---
+  else if (msg.includes("python")) {
+    response = `<h1>🐍 Python</h1><pre><code>print("Hello, Python World!")</code></pre>`;
+  } else if (msg.includes("c language")) {
+    response = `<h1>💻 C Language</h1><pre><code>#include &lt;stdio.h&gt;\nint main(){\n  printf("Hello, World!\\n");\n}</code></pre>`;
+  } else if (msg.includes("c++")) {
+    response = `<h1>💻 C++ Language</h1><pre><code>#include &lt;iostream&gt;\nusing namespace std;\nint main(){\n  cout &lt;&lt; "Hello, C++!" &lt;&lt; endl;\n}</code></pre>`;
+  } else if (msg.includes("java")) {
+    response = `<h1>☕ Java</h1><pre><code>public class Main{\n  public static void main(String[] args){\n    System.out.println("Hello, Java!");\n  }\n}</code></pre>`;
+  } else if (msg.includes("javascript") || msg.includes("js")) {
+    response = `<h1>✨ JavaScript</h1><pre><code>console.log("Hello, JavaScript!");</code></pre>`;
+  }
+
+  // --- SUBJECTS ---
+  else if (msg.includes("os") || msg.includes("operating system")) {
+    response = `
+      <h1>🖥️ Operating System</h1>
+      <h2>Main Functions</h2>
+      <table border="1" cellpadding="8" style="border-collapse:collapse;">
+        <tr><th>Function</th><th>Description</th></tr>
+        <tr><td><strong>Process Management</strong></td><td>Handles CPU scheduling & multitasking</td></tr>
+        <tr><td><strong>Memory Management</strong></td><td>Allocates and frees RAM</td></tr>
+        <tr><td><strong>File System</strong></td><td>Manages files and directories</td></tr>
+        <tr><td><strong>Security</strong></td><td>Protects data and user access</td></tr>
+      </table>
+      <hr>
+      <p>OS is the <strong>bridge</strong> between user and hardware.</p>
+    `;
+  }
+  else if (msg.includes("dbms")) {
+    response = `
+      <h1>🗄️ Database Management System (DBMS)</h1>
+      <h2>Features</h2>
+      <ul>
+        <li><strong>Data Independence:</strong> Abstracts logical from physical storage.</li>
+        <li><strong>Security:</strong> Controls access with authorization.</li>
+        <li><strong>Concurrency:</strong> Allows multiple users safely.</li>
+        <li><strong>Backup & Recovery:</strong> Protects against failures.</li>
+      </ul>
+      <hr>
+      <p>Examples: MySQL, Oracle, PostgreSQL.</p>
+    `;
+  }
+  else if (msg.includes("system testing")) {
+    response = `
+      <h1>🧪 System Testing</h1>
+      <h2>Types</h2>
+      <ul>
+        <li><strong>Functional Testing:</strong> Checks features.</li>
+        <li><strong>Performance Testing:</strong> Checks speed & load.</li>
+        <li><strong>Security Testing:</strong> Checks vulnerabilities.</li>
+        <li><strong>Usability Testing:</strong> Checks user-friendliness.</li>
+      </ul>
+      <p>Ensures the system works as a <strong>whole</strong>.</p>
+    `;
+  }
+  else if (msg.includes("computer network") || msg.includes("cn")) {
+    response = `
+      <h1>🌐 Computer Networks</h1>
+      <h2>Types</h2>
+      <ul>
+        <li><strong>LAN:</strong> Local Area Network (small area)</li>
+        <li><strong>WAN:</strong> Wide Area Network (large area)</li>
+        <li><strong>MAN:</strong> Metropolitan Area Network</li>
+        <li><strong>VPN:</strong> Secure private network</li>
+      </ul>
+      <hr>
+      <h2>Protocols</h2>
+      <p>TCP/IP, HTTP, FTP, DNS, SMTP.</p>
+    `;
+  }
+  else if (msg.includes("cryptography")) {
+    response = `
+      <h1>🔐 Cryptography</h1>
+      <h2>Techniques</h2>
+      <ul>
+        <li><strong>Symmetric Key:</strong> Same key for encryption & decryption.</li>
+        <li><strong>Asymmetric Key:</strong> Public & private key pair.</li>
+        <li><strong>Hashing:</strong> One-way secure transformation.</li>
+      </ul>
+      <hr>
+      <h2>Applications</h2>
+      <p>Data security, digital signatures, online banking, and secure messaging.</p>
+    `;
+  }
+
+  // --- SAMPLE PROGRAMS ---
+  else if (msg.includes("factorial")) {
+    response = `
+      <h1>🧮 Factorial Program</h1>
+      <h2>Python Example</h2>
+      <pre><code>
+n = 5
+fact = 1
+for i in range(1, n+1):
+    fact *= i
+print("Factorial =", fact)
+      </code></pre>
+      <p>Factorial(5) = <strong>120</strong></p>
+    `;
+  }
+  else if (msg.includes("fibonacci")) {
+    response = `
+      <h1>🔢 Fibonacci Program</h1>
+      <h2>Python Example</h2>
+      <pre><code>
+n = 6
+a, b = 0, 1
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+      </code></pre>
+      <p>Output: <strong>0 1 1 2 3 5</strong></p>
+    `;
+  }
+  else if (msg.includes("palindrome")) {
+    response = `
+      <h1>🔄 Palindrome Check</h1>
+      <h2>Python Example</h2>
+      <pre><code>
+s = "level"
+if s == s[::-1]:
+    print("Palindrome")
+else:
+    print("Not Palindrome")
+      </code></pre>
+      <p>✔ <strong>"level"</strong> is a palindrome!</p>
+    `;
+  }
+
+  // --- DEFAULT ---
+  else {
+    response = `
+      <h2>🤔 I’m not sure...</h2>
+      <p>Try asking about:</p>
+      <ul>
+        <li>Greetings 🌅</li>
+        <li>Programming Languages 💻</li>
+        <li>Subjects (OS, DBMS, CN, Cryptography) 📚</li>
+        <li>Sample Programs 🧮</li>
+        <li>Or just say: "Tell me a joke" 🤡</li>
+      </ul>
+    `;
+  }
+
+  return `<div class="ai-message">${response}</div>`;
+}
 
   // --- Sidebar Toggle ---
   window.toggleSidebar = function () {
@@ -212,4 +352,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
 
