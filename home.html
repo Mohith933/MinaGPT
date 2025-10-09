@@ -4,22 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VeloxAI - Introducing MinaGPT</title>
+    <title>Nexora - Introducing Nexora</title>
     <link rel="stylesheet" href="styles.css">
+</head>
 
 <body>
 
     <header>
         <div class="header-left">
             <div class="menu-icon" onclick="toggleSidebar()">☰</div>
-            <div class="logo">VeloxAI</div>
+            <div class="logo">Fast AI</div>
         </div>
         <div class="auth-buttons">
             <button class="login">Log in</button>
         </div>
     </header>
+
     <div class="sidebar" id="sidebar">
-        <div class="logos">VeloxAI</div>
+        <div class="logos">Nexora</div>
         <a href="#">Research</a>
         <a href="#">Safety</a>
         <a href="Model.html">Models</a>
@@ -29,82 +31,68 @@
     <main>
         <section class="intro">
             <p class="date">May 1, 2030 <span class="product-tag">Product</span></p>
-            <h2>Introducing MinaGPT</h2>
-            <a href="index.html"><button class="try-button">Try MinaGPT<img src="up-arrow.png"
-                        class="small"></button></a><br>
-           <div class="containers">
-  <p>🎧 Listen Article</p>
-  <div class="custom-audio-player">
-    <audio id="audio" src="synthesized_audio.mp3"></audio>
-    <button id="playPauseBtn" class="play-pause">▶</button>
-    <input type="range" id="seekBar" value="0" class="seek-bar">
-    <span id="time" class="time">0:00</span>
-  </div>
-</div>
-
-
-
-
+            <h2>Introducing Nexora</h2>
+           <a href="index.html">
+  <button class="try-button">Try Nexora ↑</button>
+</a><br>
+            <div class="containers">
+                <p>🎧 Listen Article</p>
+                <div class="custom-audio-player">
+                    <audio id="audio" src="synthesized_audio.mp3"></audio>
+                    <button id="playPauseBtn" class="play-pause">▶</button>
+                    <input type="range" id="seekBar" value="0" class="seek-bar">
+                    <span id="time" class="time">0:00</span>
+                </div>
+            </div>
 
             <p class="description">
-                We have developed a model called MinaGPT, designed to engage in conversational exchanges. Its
-                dialogue-based format allows MinaGPT to respond to follow-up questions, acknowledge its mistakes,
-                challenge incorrect assumptions, and decline inappropriate requests. MinaGPT is a sibling model to
-                MinaGPT, which is specifically trained to follow instructions and generate detailed responses. We are
-                excited to introduce MinaGPT and gather user feedback to understand its strengths and areas for
-                improvement. During this research preview, MinaGPT is available for free. You can try it later at
-                minagpt.com.
+                We have developed a model called Nexora, designed to engage in conversational exchanges. Its
+                dialogue-based format allows Nexora to respond to follow-up questions, acknowledge its mistakes,
+                challenge incorrect assumptions, and decline inappropriate requests. Nexora is specifically trained to
+                follow instructions and generate detailed responses. We are excited to introduce Nexora and gather user
+                feedback to understand its strengths and areas for improvement. During this research preview, Nexora is
+                available for free. You can try it later at nexora.com.
                 <br><br>
-                MinaGPT is in its research phase, available for free. Try it now at <a
-                    href="index.html">minagpt.com</a>.
+                Nexora is in its research phase, available for free. Try it now at <a href="index.html">nexora.com</a>.
             </p>
         </section>
 
         <section class="methods">
             <h3>Methods</h3>
             <p>
-                We trained this model using simple supervised learning, with the initial approach differing from the one
-                used in MinaGPT. In the first method, we trained a base model using supervised fine-tuning: human
-                trainers provided conversations where they played both roles—the user and the AI assistant. We gave the
-                trainers access to model-written suggestions to guide their responses. This new dialogue dataset was
-                then mixed with the InstructGPT dataset, which we transformed into a dialogue format.
-                For MinaGPT, a rule-based system initially, we later transitioned to using more complex methods. In the
-                early stages, we manually designed rules to guide the model's responses, but over time we began to
-                incorporate more advanced techniques to enhance its performance.
+                We trained this model using simple supervised learning. In the first method, we trained a base model
+                using supervised fine-tuning: human trainers provided conversations where they played both roles—the
+                user and the AI assistant. Trainers had access to model-written suggestions to guide their responses.
+                This new dialogue dataset was then mixed with the InstructGPT dataset, transformed into a dialogue
+                format. Nexora began as a rule-based system, later transitioning to more complex methods to enhance
+                performance.
+            </p>
         </section>
 
         <section class="limitations">
             <h3>Limitations</h3>
             <p>
-                MinaGPT sometimes generates answers that seem plausible but are actually incorrect or nonsensical.
-                Addressing this issue is challenging because: (1) during its rule-based training, there is no fixed
-                source of truth; (2) attempts to make the system more cautious lead it to decline questions that it
-                could otherwise answer correctly; and (3) relying on manual rule-based training can sometimes mislead
-                the system, as the ideal answer depends on the predefined rules rather than human knowledge.
-                MinaGPT can also be sensitive to small changes in the input phrasing or if the same prompt is attempted
-                multiple times. For example, one phrasing of a question may lead the system to claim it doesn’t know the
-                answer, while a slightly reworded version may prompt the correct response.
-                The system is sometimes excessively verbose and prone to repeating certain phrases, like restating that
-                it’s a rule-based model. These issues arise from biases in the design, where longer, more comprehensive
-                responses were preferred, and from over-optimization during the development process.
-                Ideally, MinaGPT would ask for clarification when faced with ambiguous queries. However, the current
-                system typically makes its best guess at what the user intends.
-                While we've taken steps to ensure MinaGPT refuses inappropriate requests, it may still occasionally
-                provide responses to harmful instructions or exhibit biased behavior. We are using safeguards, but we
-                recognize that false positives and negatives may occur. We are committed to collecting feedback to help
-                improve the system further.
+                Nexora sometimes generates answers that seem plausible but are incorrect or nonsensical. This challenge
+                arises due to: (1) lack of a fixed source of truth during rule-based training; (2) cautious tuning may
+                lead to declined correct answers; (3) manual rule-based training can mislead the system. Nexora may be
+                sensitive to input phrasing, sometimes verbose, and prone to repetition. Ideally, Nexora would ask for
+                clarification when faced with ambiguity, but it often makes its best guess. While safeguards are in
+                place, Nexora may occasionally respond to harmful instructions or show bias. We welcome feedback to
+                improve the system.
             </p>
         </section>
     </main>
 
-    <footer>
-        <div class="fotter-left">
-            <p>VeloxAI © 2030-2040</p>
-        </div>
-        <div class="footer-right">
-            <button class="lang-button">English <span class="greys">India</span></button>
-        </div>
-    </footer>
+   <footer>
+    <div class="fotter-left">
+        <p>Nexora © 2030–2040</p>
+    </div>
+    <div class="footer-right">
+        <button class="lang-button">English <span class="greys">India</span></button>
+    </div>
+</footer>
+
+
     <script src="theme.js"></script>
 </body>
 
