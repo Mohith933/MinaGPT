@@ -3,37 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MinaGPT</title>
-   <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Nexora</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <div class="logo">
             <img src="edit.svg" class="small" id="editBtn">
-            MinaGPT
+            Nexora
         </div>
         <div class="auth-buttons">
             <a href="Login.html"><button type="login-btn">Login</button></a>
             <a href="Login.html"><button type="signup-btn">Signup</button></a>
         </div>
     </header>
+
     <main>
         <div class="chat-container">
             <img src="chat.png">
-            <h3>What can I help with?</h3>
+            <h3>What can I help you?</h3>
         </div>
         <div class="chat-window"></div>
-        <div class="input-area">
-            <textarea class="Messagebox" placeholder="Message MinaGPT"></textarea>
-            <br>
-            <button class="send-btn">↑</button>
+        <div class="upper-arrow" style="display: none;">↑</div>
+        <div class="input-wrapper">
+            <div class="input-area">
+                <textarea id="messageBox" class="Messagebox" placeholder="Message Nexora"></textarea>
+                <button id="sendBtn" class="send-btn">
+  <span id="sendIcon">🟣</span>
+</button>
+            </div>
         </div>
     </main>
+
     <footer>
-        <p>By messaging MinaGPT, you agree to our Terms and have read our Privacy Policy.</p>
+        <p>By messaging Nexora, you agree to our Terms and have read our Privacy Policy.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
-
